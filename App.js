@@ -36,7 +36,7 @@ const App=() =>{
       />
       <Button
         title= "Take a photo"
-        onPress={() => {}}
+        onPress={takePhoto}
       />
       {image &&
         <Image source={{ uri: image.uri }} style={{ width: 200, height: 200 }} />
