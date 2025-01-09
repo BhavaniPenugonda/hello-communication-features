@@ -42,7 +42,7 @@ const App=() =>{
       Alert.alert("Permissions to read location aren't granted");
     }
   }
-  
+
   return (
     <View style={styles.container}>
       <Button
@@ -60,6 +60,17 @@ const App=() =>{
       {image &&
         <Image source={{ uri: image.uri }} style={{ width: 200, height: 200 }} />
       }
+
+      {location &&
+        <MapView
+        style={{width: 300, height: 200}}
+        region={{
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+    }}
+/>}
     </View>
 
   );
