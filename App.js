@@ -32,6 +32,17 @@ const App=() =>{
     }
   }
 
+  const getLocation = async () => {
+    let permissions = await Location.requestForegroundPermissionsAsync();
+
+    if (permissions?.granted) {
+      const location = await Location.getCurrentPositionAsync({});
+      setLocation(location);
+    } else {
+      Alert.alert("Permissions to read location aren't granted");
+    }
+  }
+  
   return (
     <View style={styles.container}>
       <Button
@@ -42,10 +53,15 @@ const App=() =>{
         title= "Take a photo"
         onPress={takePhoto}
       />
+      <Button
+        title="Get my location"
+        onPress={getLocation}
+      />
       {image &&
         <Image source={{ uri: image.uri }} style={{ width: 200, height: 200 }} />
       }
     </View>
+
   );
  }
 
