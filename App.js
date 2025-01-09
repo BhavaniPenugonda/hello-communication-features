@@ -8,6 +8,8 @@ import MapView from 'react-native-maps';
 
 const App=() =>{
   const [image, setImage] = useState(null);
+  const [location, setLocation] = useState(null);
+
   const pickImage = async () => {
     let permissions = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
