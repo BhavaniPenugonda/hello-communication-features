@@ -17,6 +17,17 @@ const App=() =>{
     }
   }
 
+  const takePhoto = async () => {
+    let permissions = await ImagePicker.requestCameraPermissionsAsync();
+
+    if (permissions?.granted) {
+      let result = await ImagePicker.launchCameraAsync();
+
+      if (!result.canceled) setImage(result.assets[0]);
+      else setImage(null)
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Button
