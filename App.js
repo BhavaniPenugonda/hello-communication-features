@@ -2,6 +2,8 @@
 import { StyleSheet,Button,Image, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
+import * as Location from 'expo-location';
+import MapView from 'react-native-maps';
 
 
 const App=() =>{
